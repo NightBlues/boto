@@ -27,10 +27,11 @@ class RegionInfo(object):
     """
     
     def __init__(self, connection=None, name=None, endpoint=None,
-                 connection_cls=None):
+                 description=None, connection_cls=None):
         self.connection = connection
         self.name = name
         self.endpoint = endpoint
+        self.description = description
         self.connection_cls = connection_cls
 
     def __repr__(self):
@@ -44,6 +45,8 @@ class RegionInfo(object):
             self.name = value
         elif name == 'regionEndpoint':
             self.endpoint = value
+        elif name == 'regionDescription':
+            self.description = value
         else:
             setattr(self, name, value)
 
